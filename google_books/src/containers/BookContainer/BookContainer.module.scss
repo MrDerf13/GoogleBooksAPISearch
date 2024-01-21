@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // height: 80vh;
+  margin-top: 10px;
+  justify-content: space-around;
+  box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+  border-radius: 20px;
+}
+
+.modal {
+  position: fixed;
+  color: white;
+  top: 50px;
+  height: 85vh;
+  width: 75vw;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgb(4, 23, 52);
+}
+
+.modal::backdrop {
+  background-image: salmon;
+}
