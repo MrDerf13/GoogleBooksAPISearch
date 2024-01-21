@@ -13,26 +13,20 @@ const BookContainer = ({ searchTerm, title, author, publisher }) => {
   // state to determine which "page" you're on
 
   useEffect(() => {
+    setBookData(bookList[bookID.id]);
+  }, [showModal]);
+
+  useEffect(() => {
     setLoading(true);
 
     basicSearch(searchTerm, title, author, publisher)
       .then((res) => {
-        console.log("working");
         setBookList(res);
       })
-      // .catch((e) => console.log(e))
-      .finally(setLoading(false));
-    // console.log(bookList);
+      .finally(() => {
+        setLoading(false);
+      });
   }, [searchTerm, title, author, publisher]);
-
-  useEffect(() => {
-    if (bookID === "") {
-      return;
-    } else {
-      setBookData(bookList[bookID.id]);
-      console.log(bookData);
-    }
-  }, [showModal]);
 
   return (
     <div className={styles.container}>
@@ -55,13 +49,16 @@ const BookContainer = ({ searchTerm, title, author, publisher }) => {
         ))}
       {/* dialog here, render based on bookID */}
       <dialog open={showModal} className={styles.modal}>
-        {showModal && <h1>{bookData.title}</h1>}
-        {showModal && <h3>{bookData.subtitle}</h3>}
-        {showModal && <h2>{bookData.author}</h2>}
-        {showModal && <p>Published by: {bookData.publisher}</p>}
-        {showModal && <p>Published On: {bookData.publishedDate}</p>}
-        {showModal && <img src={bookData.imageLarge} alt="book cover" />}
-        {showModal && <p>{bookData.description}</p>}
+        {showModal && bookData && <h1>{bookData.title}</h1>}
+        {showModal && bookData && <h3>{bookData.subtitle}</h3>}
+        {showModal && bookData && <h2>{bookData.author}</h2>}
+        {showModal && bookData && <p>Published by: {bookData.publisher}</p>}
+        {showModal && bookData && <p>Published On: {bookData.publishedDate}</p>}
+        {showModal && bookData && (
+          <img src={bookData.imageLarge} alt="book cover" />
+        )}
+        {showModal && bookData && <p>{bookData.description}</p>}
+
         <button
           onClick={() => {
             setShowModal(false);
