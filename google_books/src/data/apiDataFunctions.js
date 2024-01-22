@@ -17,8 +17,6 @@ const basicSearch = async (
   // show a max 10 pages and warn, change max results to 20 use &startIndex=${page}
   const pages = Math.ceil(basicData.totalItems / resPerPg);
 
-  console.log(pages);
-
   const cleanedData = basicData.items?.map((book) => {
     const cleanBookData = {
       title: book.volumeInfo.title,
@@ -36,17 +34,3 @@ const basicSearch = async (
 };
 
 export default basicSearch;
-
-// create a cleanup data function separate to the above
-
-// export const openDialog = () => {
-//   return true;
-// };
-
-// const advancedSearch = async (searchTerm) => {
-//   const response = await fetch(
-//     `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&maxResults=${resPerPg}`
-//   );
-
-//   const basicData = await response.json();
-// };
