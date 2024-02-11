@@ -1,0 +1,21 @@
+.card {
+  // border: 1px solid purple;
+  height: 400px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 10px 20px 10px;
+  background: rgb(9, 46, 101, 0.67);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: rgb(9, 46, 101, 0.67) 0px 0px 0px 2px inset,
+    rgb(255, 255, 255) 5px -4px 0px -3px, rgb(220, 220, 220) 5px -4px,
+    rgb(255, 255, 255) 10px -8px 0px -3px, rgb(220, 220, 220) 10px -8px,
+    rgb(255, 255, 255) 15px -12px 0px -3px, rgb(9, 46, 101, 0.67) 15px -12px;
+  img {
+    height: 210px;
+    width: 135px;
+  }
+}
